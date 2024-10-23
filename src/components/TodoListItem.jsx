@@ -5,9 +5,8 @@ const TodoListItem = ({ todo, toggleDone, removeTodo }) => {
 
   // const toggleDone = () => {
   //   setisDone((isDone) => !isDone);
-    
-  // };
 
+  // };
 
   return (
     <li className="list">
@@ -17,8 +16,7 @@ const TodoListItem = ({ todo, toggleDone, removeTodo }) => {
       >
         {todo.title}
       </p>
-      <button onClick={() => removeTodo(todo.id)} 
-      className="delete-btn">
+      <button onClick={() => removeTodo(todo.id)} className="delete-btn">
         X
       </button>
     </li>

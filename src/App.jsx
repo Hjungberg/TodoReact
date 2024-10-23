@@ -9,55 +9,59 @@ function App() {
     {
       id: uuidv4(),
       title: "Learn React",
-      completed: true
+      completed: true,
     },
     {
       id: uuidv4(),
       title: "Finish database course",
-      completed: false
+      completed: false,
     },
     {
       id: uuidv4(),
       title: "Add database support",
-      completed: false
+      completed: false,
     },
     {
       id: uuidv4(),
       title: "Profit",
-      completed: false
-    }
+      completed: false,
+    },
   ]);
 
   const addTodo = (todoText) => {
-    setTodo(state => {
+    setTodo((state) => {
       return [...state, { id: uuidv4(), title: todoText }];
     });
   };
 
   const removeTodo = (id) => {
     setTodo((state) => {
-      return state.filter((todo) => todo.id !== id)
+      return state.filter((todo) => todo.id !== id);
     });
   };
 
-  
   const toggleDone = (id) => {
-    setTodo(todo.map(todo => {
-      if (todo.id === id) {
-        return {...todo, completed: !todo.completed}
-      } else {
-        return todo
-      }
-  }))
-  }
-
+    setTodo(
+      todo.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, completed: !todo.completed };
+        } else {
+          return todo;
+        }
+      })
+    );
+  };
 
   return (
     <>
       <div className="container">
         <div className="todoApp">
           <TodoInput addTodo={addTodo} />
-          <TodoList todo={todo} toggleDone={toggleDone} removeTodo={removeTodo}/>
+          <TodoList
+            todo={todo}
+            toggleDone={toggleDone}
+            removeTodo={removeTodo}
+          />
         </div>
       </div>
     </>
