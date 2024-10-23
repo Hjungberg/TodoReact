@@ -7,14 +7,13 @@ const TodoListItem = ({ todo, removeTodo }) => {
     setisDone((isDone) => !isDone);
   };
 
-  console.log(todo)
   return (
     <li className="list">
       <p
         onClick={toggleDone}
         className={`TodoListItem ${isDone ? "task-done" : ""}`}
       >
-        {todo.id},{todo}
+        {todo.title}
       </p>
       <button onClick={() => removeTodo(todo.id)} 
       className="delete-btn">

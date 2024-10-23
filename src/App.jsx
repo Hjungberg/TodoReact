@@ -9,18 +9,18 @@ function App() {
     {
       id: uuidv4(),
       title: "Finish database course",
-      completed: false,
+      completed: false
     },
     {
       id: uuidv4(),
       title: "Add database support",
-      completed: true,
+      completed: false
     },
     {
       id: uuidv4(),
       title: "Profit",
-      completed: true,
-    },
+      completed: false
+    }
   ]);
 
   const addTodo = (todoText) => {
@@ -31,10 +31,11 @@ function App() {
 
   const removeTodo = (id) => {
     setTodo((state) => {
-      console.log(id)
       return state.filter((todo) => todo.id !== id)
     });
   };
+
+
 
   return (
     <>
