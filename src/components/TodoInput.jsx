@@ -16,6 +16,7 @@ const TodoInput = ({ addTodo }) => {
         value={todoText}
         onChange={(e) => setTodoText(e.target.value)}
         type="text"
+        autoFocus
         className="input-text"
       />
       <button className="input-btn">Todo</button>

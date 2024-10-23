@@ -8,6 +8,11 @@ function App() {
   const [todo, setTodo] = useState([
     {
       id: uuidv4(),
+      title: "Learn React",
+      completed: true
+    },
+    {
+      id: uuidv4(),
       title: "Finish database course",
       completed: false
     },
@@ -35,6 +40,16 @@ function App() {
     });
   };
 
+  
+  const toggleDone = (id) => {
+    setTodo(todo.map(todo => {
+      if (todo.id === id) {
+        return {...todo, completed: !todo.completed}
+      } else {
+        return todo
+      }
+  }))
+  }
 
 
   return (
@@ -42,7 +57,7 @@ function App() {
       <div className="container">
         <div className="todoApp">
           <TodoInput addTodo={addTodo} />
-          <TodoList todo={todo} removeTodo={removeTodo}/>
+          <TodoList todo={todo} toggleDone={toggleDone} removeTodo={removeTodo}/>
         </div>
       </div>
     </>
