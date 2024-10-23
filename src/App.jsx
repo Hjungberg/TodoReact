@@ -1,8 +1,8 @@
-import { useState } from "react";
 import "./App.css";
 import TodoInput from "./components/todoInput";
 import TodoList from "./components/TodoList";
-import {v4 as uuidv4} from 'uuid';
+import { v4 as uuidv4 } from "uuid";
+import { useState } from "react";
 
 function App() {
   const [todo, setTodo] = useState([
@@ -24,18 +24,17 @@ function App() {
   ]);
 
   const addTodo = (todoText) => {
+    console.log(todoText)
     setTodo(state => {
-      return[...state, {id: uuidv4(), name: todoText}]
-      console.log(todoText)
-    })
-  }
-
+      return [...state, { id: uuidv4(), title: todoText }];
+    });
+  };
 
   return (
     <>
       <div className="container">
         <div className="todoApp">
-          <TodoInput />
+          <TodoInput addTodo={addTodo} />
           <TodoList todo={todo} />
         </div>
       </div>
