@@ -7,26 +7,32 @@ import { useState } from "react";
 function App() {
   const [todo, setTodo] = useState([
     {
-      id: 0,
-      title: "Task 1",
+      id: uuidv4(),
+      title: "Finish database course",
       completed: false,
     },
     {
-      id: 1,
-      title: "Task 2",
+      id: uuidv4(),
+      title: "Add database support",
       completed: true,
     },
     {
-      id: 2,
-      title: "Task 3",
+      id: uuidv4(),
+      title: "Profit",
       completed: true,
     },
   ]);
 
   const addTodo = (todoText) => {
-    console.log(todoText)
     setTodo(state => {
       return [...state, { id: uuidv4(), title: todoText }];
+    });
+  };
+
+  const removeTodo = (id) => {
+    setTodo((state) => {
+      console.log(id)
+      return state.filter((todo) => todo.id !== id)
     });
   };
 
@@ -35,7 +41,7 @@ function App() {
       <div className="container">
         <div className="todoApp">
           <TodoInput addTodo={addTodo} />
-          <TodoList todo={todo} />
+          <TodoList todo={todo} removeTodo={removeTodo}/>
         </div>
       </div>
     </>
